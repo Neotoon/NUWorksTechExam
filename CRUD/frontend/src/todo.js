@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 function Todo(){
     const [todo,setTodo]=useState([])
@@ -12,11 +13,12 @@ function Todo(){
     return(
         <div className='d-flex vh-100 bg-white justify-content-center align-items-center'>
             <div className='w-50 rounded p-3'>
-                <button className='btn btn-success'>Add +</button>
+                <Link to="/create" className='btn btn-success'>Add +</Link>
                 <table className='table'>
                     <thead>
                         <tr>
                         <th>Todo</th>
+                        <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,6 +26,10 @@ function Todo(){
                             todo.map((data,i)=>(
                                 <tr key={i}>
                                     <td>{data.Todo}</td>
+                                    <td>
+                                        <button className='btn btn-primary'>Edit</button>
+                                        <button className='btn btn-danger ms-2'>Done</button>
+                                    </td>
                                 </tr>
                             ))
                         }
