@@ -45,6 +45,15 @@ app.put("/update/:id",(req,res)=>{
     })
 })
 
+app.delete('/todo/:id',(req,res)=>{
+    const sql="DELETE FROM todo WHERE ID = ?";
+    const id=req.params.id;
+    db.query(sql,[id],(err,data)=>{
+        if(err) return res.json("post");
+        return res.json(data);
+    })
+})
+
 app.listen(8081,()=>{
     console.log("listening");
 })
