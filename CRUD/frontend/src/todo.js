@@ -27,7 +27,7 @@ function Todo(){
                                 <tr key={i}>
                                     <td>{data.Todo}</td>
                                     <td>
-                                        <button className='btn btn-primary'>Edit</button>
+                                        <Link to={`update/${data.ID}`} className='btn btn-primary'>Update</Link>
                                         <button className='btn btn-danger ms-2'>Done</button>
                                     </td>
                                 </tr>

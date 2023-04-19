@@ -33,6 +33,18 @@ app.post("/create",(req,res)=>{
     })
 })
 
+app.put("/update/:id",(req,res)=>{
+    const sql="UPDATE todo set Todo=? WHERE ID = ?";
+    const values = [
+        req.body.todo
+    ]
+    const id=req.params.id;
+    db.query(sql,[...values,id],(err,data)=>{
+        if(err) return res.json("post");
+        return res.json(data);
+    })
+})
+
 app.listen(8081,()=>{
     console.log("listening");
 })
