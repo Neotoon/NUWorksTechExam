@@ -17,18 +17,18 @@ const db=mysql.createConnection({
 app.get("/",(req,res)=>{
     const sql="SELECT * FROM todo";
     db.query(sql,(err,data)=>{
-        if(err) return res.json("Error");
+        if(err) return res.json("select");
         return res.json(data);
     })
 })
 
 app.post("/create",(req,res)=>{
-    const sql="INSERT INTO todo ('Todo') VALUES (?)";
+    const sql="INSERT INTO todo (Todo) VALUES (?)";
     const values = [
         req.body.todo
     ]
     db.query(sql,[values],(err,data)=>{
-        if(err) return res.json("Error");
+        if(err) return res.json("post");
         return res.json(data);
     })
 })
